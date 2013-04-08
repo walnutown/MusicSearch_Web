@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+"http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+	<head>
+		<style type="text/css">
+		h1{font-size: 25pt; text-align: center}
+		#tb{margin: 0px auto; border: 1px solid #b9b9b9; font-size: 15pt;}
+		#input{line-height: 20pt}
+		#select{width: 110px;font-size: 15pt;}	
+		#button{width: 80px; font-size: 15pt;}
+		h1, h2, #titleName, #typeName{color: #4174DB}
+		</style>
+
+		<script src="request.js" type="text/javascript" language="Javascript"> 
+		</script>
+	</head>
+
+	<body>
+		<script>
+		window.fbAsyncInit = function()
+		{
+			//initializaiotn of FB JS SDK
+			FB.init(
+			{
+				appId		: '174545682698530',
+				//Adding a Channel File greatly improves the performance of the JS SDK 
+				//by addressing issues with cross-domain communication in certain browsers
+				channelUrl	: '//cs-server.ucs.edu:36710/examples/servlets/channel.html',
+				status		: true,
+				xfbml		: true,
+				cookie		: true
+			}
+			);
+			
+			//FB.getLoginStatus determines whether a user is logged in
+			//to Facebook and has authenticated your app
+			/*
+FB.getLoginStatus(
+				function(response) 
+				{
+				  if (response.status === 'connected') {
+				    // connected
+				  } else if (response.status === 'not_authorized') {
+				    // not_authorized
+				   // login();
+				  } else {
+				    // not_logged_in
+				    //login();
+				  }
+				}
+			 );
+*/
+	    };
+		
+		// Load the SDK asynchronously
+		(function(d,s,id)
+		{
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); 
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
+		/*
+function login() 
+		 {
+		    alert("login called");
+		    FB.login(function(response) 
+		    {
+		        if (response.authResponse) {
+		            // connected
+		        } else {
+		            // cancelled
+		        }
+		    });
+		 }
+*/ 
+		</script>
+		
+		
+		<h1> Discography Search</h1>
+        <div class="frmDiv">
+			<form id="frm" method="get" name="form">
+			<table id="tb" cellpadding="10px">
+				<tr>
+					<td align="left" id='titleName'>Title:</td><td width="50"></td>
+					<td align="left"><input id="input" type="text" name="title" size="35"></td>
+				</tr>
+				<tr>
+					<td align="left" id='typeName'>Type:</td><td></td>
+					<td align="left" ><select id="type" name="type">
+						<option value="artist" selected>Artists</option>
+						<option value="album">Albums</option>
+						<option value="song">Songs</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7" align="right"><input id="button" type="submit" name="button" value="Search"></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<h2 id="result" align='center'>Displaying <span id="number"></span> results for <span id="searchTitle"></span></h2>
+		<div id="dynamic">
+		</div>
+		<div id="debug">
+		</div>
+	<noscript>
+	</body>
+</html>
