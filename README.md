@@ -6,8 +6,8 @@
 
 3. File description
   <PRE> 
-   discography_search_hw8.html     :  input music title and choose type
-   request.js					             :  javascript, send HTTPRequest to java servlet, and deal with JSON from java servlet
-   get_discography_hw8.php		     :  apache server php file to parse all music and create XML
-   HelloWordlExample.java   	     :  java servlet file to receive XML from apache server and send JSON back to client
+   discography_search_hw8.html    :  input music title and choose type
+   request.js                     :  javascript, send HTTPRequest to java servlet, and deal with JSON from java servlet
+   get_discography_hw8.php        :  apache server php file to parse all music and create XML
+   HelloWordlExample.java         :  java servlet file to receive XML from apache server and send JSON back to client
 </PRE>
